@@ -40,9 +40,10 @@ func MakeStreamChatRequest(c *gin.Context, client cycletls.CycleTLS, jsonData []
 			"x-stainless-runtime-version": "v20.18.3",
 			"authorization":               fmt.Sprintf("Bearer %s", cookie),
 			"anthropic-version":           "2023-06-01",
-			"anthropic-beta":              "prompt-caching-2024-07-31,output-128k-2025-02-19",
+			"anthropic-beta":              "prompt-caching-2024-07-31",
 			"x-stainless-retry-count":     "0",
 			"x-stainless-timeout":         "600000",
+			"Host":                        "kilocode.ai",
 		}
 	} else if modelInfo.Source == "openrouter" {
 		endpoint = openRouterEndpoint
@@ -62,6 +63,7 @@ func MakeStreamChatRequest(c *gin.Context, client cycletls.CycleTLS, jsonData []
 			"http-referer":                "https://kilocode.ai",
 			"x-title":                     "Kilo Code",
 			"x-stainless-retry-count":     "0",
+			"Host":                        "kilocode.ai",
 		}
 	}
 
